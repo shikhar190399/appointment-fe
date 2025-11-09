@@ -1,0 +1,216 @@
+.guest-appointment__layout {
+  min-height: 0;
+}
+
+.guest-appointment__panel {
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+  background: linear-gradient(145deg, #0f172a, #111c34);
+  color: #e2e8f0;
+}
+
+.guest-appointment__panel .card-body {
+  background-color: transparent;
+}
+
+.guest-appointment__panel h2,
+.guest-appointment__panel span,
+.guest-appointment__panel p {
+  color: inherit;
+}
+
+.guest-appointment__calendar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: 0.6rem;
+}
+
+.guest-appointment__day {
+  border-radius: 14px;
+  padding: 0.85rem 0.65rem;
+  background-color: rgba(255, 255, 255, 0.04);
+  color: inherit;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.guest-appointment__day:hover {
+  background-color: rgba(59, 130, 246, 0.2);
+}
+
+.guest-appointment__day--active {
+  background-color: rgba(59, 130, 246, 0.35);
+  border-color: rgba(59, 130, 246, 0.8);
+  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
+}
+
+.guest-appointment__day-weekday {
+  display: block;
+  font-size: 0.7rem;
+  opacity: 0.8;
+}
+
+.guest-appointment__day-date {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-top: 0.35rem;
+}
+
+.guest-appointment__slots {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.4rem;
+  min-height: 200px;
+}
+
+.guest-appointment__slot {
+  border-radius: 12px;
+  border-width: 1px;
+  border-style: solid;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.guest-appointment__slot--available {
+  background-color: transparent;
+  color: #38bdf8;
+  border-color: rgba(56, 189, 248, 0.4);
+  padding: 0.6rem 0.9rem;
+}
+
+.guest-appointment__slot--available:hover {
+  background-color: rgba(56, 189, 248, 0.15);
+}
+
+.guest-appointment__slot--active {
+  background-color: #2563eb;
+  border-color: #3b82f6;
+  color: #fff;
+  box-shadow: 0 12px 24px rgba(37, 99, 235, 0.35);
+  padding: 0.6rem 0.9rem;
+}
+
+.guest-appointment__slot--booked {
+  background-color: rgba(226, 232, 240, 0.08);
+  border-color: transparent;
+  color: rgba(226, 232, 240, 0.6);
+  cursor: not-allowed;
+  padding: 0.6rem 0.9rem;
+}
+
+.guest-appointment__loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 0;
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 768px) {
+  .guest-appointment__slots {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 540px) {
+  .guest-appointment__slots {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+.booking-form__overlay {
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(4px);
+  background: rgba(15, 23, 42, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 1050;
+}
+
+.booking-form__container {
+  max-width: 420px;
+  width: 100%;
+  border-radius: 14px;
+  border: none;
+  background: linear-gradient(145deg, #101a2f, #1b2946);
+  color: #e2e8f0;
+  box-shadow: 0 16px 35px rgba(15, 23, 42, 0.4);
+}
+
+.booking-form__container .card-body {
+  padding: 1.75rem;
+}
+
+.booking-form__header h2,
+.booking-form__header span,
+.booking-form__form label {
+  color: inherit;
+}
+
+.booking-form__form .form-control,
+.booking-form__form textarea {
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  color: #e2e8f0;
+}
+
+.booking-form__form .form-control:focus,
+.booking-form__form textarea:focus {
+  border-color: rgba(59, 130, 246, 0.6);
+  box-shadow: 0 0 0 0.25rem rgba(59, 130, 246, 0.15);
+}
+
+.booking-form__form textarea {
+  resize: vertical;
+}
+
+.booking-form__form .form-text {
+  color: rgba(226, 232, 240, 0.7);
+}
+
+.booking-form__form .btn-outline-secondary {
+  color: #cbd5f5;
+  border-color: rgba(148, 163, 184, 0.5);
+}
+
+.booking-form__form .btn-outline-secondary:hover {
+  background-color: rgba(148, 163, 184, 0.12);
+}
+
+.booking-form__form .btn-primary {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  border: none;
+}
+
+.booking-form__form .btn-primary:disabled {
+  opacity: 0.6;
+}
+.guest-appointment .btn-outline-secondary {
+  border-color: rgba(148, 163, 184, 0.5);
+  color: #cbd5f5;
+}
+
+.guest-appointment .btn-outline-secondary:hover {
+  background-color: rgba(148, 163, 184, 0.1);
+}
+
+.guest-appointment .btn-primary {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  border: none;
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.45);
+}
+
+.guest-appointment .btn-primary:disabled {
+  opacity: 0.6;
+  box-shadow: none;
+}
+

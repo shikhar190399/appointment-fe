@@ -1,0 +1,45 @@
+.loader {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #1e293b;
+}
+
+.loader__spinner {
+  flex-shrink: 0;
+}
+
+.loader__spinner--sm {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-width: 0.22rem;
+}
+
+.loader__spinner--md {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-width: 0.28rem;
+}
+
+.loader__spinner--lg {
+  width: 3rem;
+  height: 3rem;
+  border-width: 0.32rem;
+}
+
+.loader__message {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.loader--fullscreen {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.2);
+  backdrop-filter: blur(3px);
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

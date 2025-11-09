@@ -1,0 +1,80 @@
+.snackbar {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  min-width: 280px;
+  max-width: 90%;
+  padding: 0.75rem 1.25rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  color: #0f172a;
+  background: rgba(241, 245, 249, 0.98);
+  box-shadow: 0 18px 32px rgba(15, 23, 42, 0.2);
+  z-index: 3000;
+  animation: snackbar-slide-in 0.2s ease-out;
+  border: 1px solid transparent;
+}
+
+.snackbar--success {
+  border-color: rgba(34, 197, 94, 0.55);
+}
+
+.snackbar--error {
+  border-color: rgba(239, 68, 68, 0.5);
+}
+
+.snackbar--info {
+  border-color: rgba(59, 130, 246, 0.45);
+}
+
+.snackbar__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 9999px;
+  background: rgba(34, 197, 94, 0.15);
+  color: #16a34a;
+  font-size: 1rem;
+}
+
+.snackbar--error .snackbar__icon {
+  background: rgba(239, 68, 68, 0.15);
+  color: #dc2626;
+}
+
+.snackbar--info .snackbar__icon {
+  background: rgba(59, 130, 246, 0.15);
+  color: #2563eb;
+}
+
+.snackbar__close {
+  border: none;
+  background: transparent;
+  color: inherit;
+  font-size: 1.15rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+}
+
+.snackbar__close:hover {
+  opacity: 0.8;
+}
+
+@keyframes snackbar-slide-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
