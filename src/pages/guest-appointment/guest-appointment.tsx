@@ -29,6 +29,16 @@ export const GuestAppointmentPage = observer(() => {
     }
   }, [availability, status, page])
 
+  useEffect(
+    () => () => {
+      availability.reset()
+      setSelectedDayIndex(0)
+      setSelectedSlot(null)
+      setIsFormVisible(false)
+    },
+    [availability],
+  )
+
   useEffect(() => {
     if (days.length > 0 && selectedDayIndex >= days.length) {
       setSelectedDayIndex(0)

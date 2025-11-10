@@ -134,5 +134,18 @@ export const AvailabilityStoreModel = types
     }
   })
 
+  .actions((self) => ({
+    reset() {
+      self.days = cast([])
+      self.page = 0
+      self.weekStart = null
+      self.weekEnd = null
+      self.hasPrevious = false
+      self.hasNext = false
+      self.status = 'idle'
+      self.error = null
+    },
+  }))
+
 export type AvailabilityStore = typeof AvailabilityStoreModel.Type
 
