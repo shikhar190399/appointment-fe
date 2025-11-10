@@ -75,7 +75,10 @@ export const AdminAppointmentsPage = observer(() => {
 
   useEffect(() => {
     if (status === 'idle') {
-      void fetchAppointments(1)
+      const today = new Date()
+      const day = today.getDay()
+      const initialPage = day === 0 || day === 6 ? 1 : 0
+      void fetchAppointments(initialPage)
     }
   }, [status, fetchAppointments])
 
