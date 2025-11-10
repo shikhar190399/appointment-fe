@@ -13,14 +13,12 @@ const dateFormatter = new Intl.DateTimeFormat(undefined, {
   weekday: 'short',
   month: 'short',
   day: 'numeric',
-  timeZone: 'UTC',
 })
 
 const timeFormatter = new Intl.DateTimeFormat(undefined, {
   hour: 'numeric',
   minute: '2-digit',
   hour12: false,
-  timeZone: 'UTC',
 })
 
 const timestampFormatter = new Intl.DateTimeFormat(undefined, {
@@ -48,6 +46,7 @@ export const AdminAppointmentsPage = observer(() => {
       weekEnd,
       fetchAppointments,
       cancelAndRefresh,
+      reset,
     },
   } = useRootStore()
 
@@ -82,6 +81,13 @@ export const AdminAppointmentsPage = observer(() => {
     }
   }, [status, fetchAppointments])
 
+  useEffect(
+    () => () => {
+      reset()
+    },
+    [reset],
+  )
+
   const weekRange = useMemo(() => {
     if (!weekStart || !weekEnd) {
       return null
@@ -106,10 +112,10 @@ export const AdminAppointmentsPage = observer(() => {
     : null
 
   const getStartOfWeek = (date: Date) => {
-    const cloned = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()))
-    const day = cloned.getUTCDay()
+    const cloned = new Date(date.getFullYear(), date.getMonth(), date.getDate())
+    const day = cloned.getDay()
     const diff = (day === 0 ? -6 : 1) - day
-    cloned.setUTCDate(cloned.getUTCDate() + diff)
+    cloned.setDate(cloned.getDate() + diff)
     return cloned
   }
 

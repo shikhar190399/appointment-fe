@@ -9,20 +9,6 @@ const RequestStatusModel = types.enumeration('RequestStatus', ['idle', 'loading'
  * Normalises a backend ISO timestamp to a canonical UTC ISO string.
  * The admin UI then formats this consistently regardless of viewer timezone.
  */
-const toUTC = (iso: string) => {
-  const date = new Date(iso)
-  return new Date(
-    Date.UTC(
-      date.getUTCFullYear(),
-      date.getUTCMonth(),
-      date.getUTCDate(),
-      date.getUTCHours(),
-      date.getUTCMinutes(),
-      date.getUTCSeconds(),
-      date.getUTCMilliseconds(),
-    ),
-  ).toISOString()
-}
 
 export const AppointmentsStoreModel = types
   .model('AppointmentsStore', {
@@ -46,7 +32,7 @@ export const AppointmentsStoreModel = types
       created_at: string
     }) => ({
       id: dto.id,
-      startTime: toUTC(dto.start_time),
+      startTime: dto.start_time,
       name: dto.name,
       email: dto.email,
       phone: dto.phone,
@@ -86,9 +72,21 @@ export const AppointmentsStoreModel = types
       yield fetchAppointments(self.page)
     })
 
+    const reset = () => {
+      self.items = cast([])
+      self.status = 'idle'
+      self.error = null
+      self.page = 1
+      self.hasPrevious = false
+      self.hasNext = false
+      self.weekStart = null
+      self.weekEnd = null
+    }
+
     return {
       fetchAppointments,
       cancelAndRefresh,
+      reset,
     }
   })
 
